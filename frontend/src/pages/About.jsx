@@ -422,7 +422,6 @@ function MissionSection() {
                                 border: `1px solid ${p.color}22`,
                             }}
                         >
-                            {/* Top color strip */}
                             <div style={{
                                 position: 'absolute', top: 0, left: 0, right: 0, height: 3,
                                 background: `linear-gradient(90deg, ${p.color}, ${p.color}88)`,
@@ -500,7 +499,6 @@ function CTASection() {
                     animation: 'shimmer-bg 8s ease infinite',
                 }}
             >
-                {/* Cloud puffs */}
                 <div className="absolute top-[-30px] left-[-40px] w-[220px] h-[100px] opacity-20 pointer-events-none"
                     style={{ background: 'radial-gradient(ellipse, white 0%, transparent 70%)', filter: 'blur(20px)' }} />
                 <div className="absolute bottom-[-20px] right-[10%] w-[180px] h-[80px] opacity-15 pointer-events-none"
@@ -542,7 +540,6 @@ function CTASection() {
                         </div>
                     </div>
 
-                    {/* Mascot */}
                     <div className="relative flex justify-center items-end flex-none w-full h-[240px] md:w-[320px] md:h-auto overflow-hidden md:overflow-visible pr-0 md:pr-8">
                         <img
                             src={mascot1}

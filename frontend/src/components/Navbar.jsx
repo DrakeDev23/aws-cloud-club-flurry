@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 const logo = '/images/logo.png';
 
+const navItems = [
+  { name: 'Home', path: '/' },
+  { name: 'About Us', path: '/about' },
+  { name: 'Events', path: '/events' },
+  { name: 'Leaderboard', path: '/' },
+  { name: 'Blog', path: '/blog' },
+];
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,9 +24,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-[20px] left-1/2 -translate-x-1/2 w-[90%] max-w-[1000px] z-[1000]">
-      <nav
-        className="flex justify-between items-center px-6 py-3 rounded-[100px] border border-white/30 backdrop-blur-[16px] shadow-premium bg-[rgba(240,249,255,0.7)] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-      >
+      <nav className="flex justify-between items-center px-6 py-3 rounded-[100px] border border-white/30 backdrop-blur-[16px] shadow-premium bg-[rgba(240,249,255,0.7)] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
 
         <div className="flex items-center gap-3 font-semibold text-[0.9em] tracking-[-0.01em]">
           <img src={logo} alt="AWSCC Logo" className="h-[40px] w-auto object-contain" />
@@ -26,13 +32,7 @@ const Navbar = () => {
         </div>
 
         <ul className="hidden md:flex list-none gap-8 items-center">
-          {[
-            { name: 'Home', path: '/' },
-            { name: 'About Us', path: '/#about' },
-            { name: 'Events', path: '/events' },
-            { name: 'Leaderboard', path: '/' },
-            { name: 'Blog', path: '/blog' }
-          ].map((item) => (
+          {navItems.map((item) => (
             <li key={item.name}>
               <Link
                 to={item.path}
@@ -57,23 +57,21 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div
-          className={`absolute top-[80px] left-1/2 -translate-x-1/2 w-[92%] bg-[rgba(240,249,255,0.9)] backdrop-blur-[24px] border border-black/5 rounded-[28px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.1)] z-[1001] md:hidden flex-col gap-2
-      ${isMenuOpen ? 'flex animate-[slideIn_0.3s_cubic-bezier(0.4,0,0.2,1)]' : 'hidden'}`}
-        >
+        <div className={`absolute top-[80px] left-1/2 -translate-x-1/2 w-[92%] bg-[rgba(240,249,255,0.9)] backdrop-blur-[24px] border border-black/5 rounded-[28px] p-4 shadow-[0_20px_40px_rgba(0,0,0,0.1)] z-[1001] md:hidden flex-col gap-2 ${isMenuOpen ? 'flex animate-[slideIn_0.3s_cubic-bezier(0.4,0,0.2,1)]' : 'hidden'}`}>
           <ul className="flex flex-col gap-2 w-full">
-            {['Home', 'About Us', 'Events', 'Leaderboard', 'Blog'].map((item, index) => (
+            {navItems.map((item, index) => (
               <li
-                key={item}
+                key={item.name}
                 className={isMenuOpen ? "opacity-0 translate-y-2.5 animate-[staggerIn_0.4s_cubic-bezier(0.4,0,0.2,1)_forwards]" : "opacity-0"}
                 style={{ animationDelay: `${0.1 + index * 0.05}s` }}
               >
-                <a
-                  href="#"
+                <Link
+                  to={item.path}
+                  onClick={() => setIsMenuOpen(false)}
                   className="block text-center py-[14px] px-[20px] rounded-[16px] font-semibold text-text-main transition-all duration-200 ease-out hover:bg-[#ff6b501a] hover:text-primary hover:scale-[0.98]"
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </Link>
               </li>
             ))}
 
@@ -91,18 +89,17 @@ const Navbar = () => {
 
       <style dangerouslySetInnerHTML={{
         __html: `
-      @keyframes slideIn {
-        from { opacity: 0; transform: translate(-50%, -10px); }
-        to { opacity: 1; transform: translate(-50%, 0); }
-      }
-      @keyframes staggerIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    `
+          @keyframes slideIn {
+            from { opacity: 0; transform: translate(-50%, -10px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+          }
+          @keyframes staggerIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `
       }} />
     </header>
-
   );
 };
 

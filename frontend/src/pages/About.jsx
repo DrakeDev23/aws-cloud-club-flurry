@@ -202,7 +202,6 @@ function HeroSection() {
             ref={ref}
             className="relative overflow-hidden min-h-[85vh] flex items-center"
         >
-            {/* ── Slideshow Background ── */}
             {heroSlides.map((src, i) => (
                 <div
                     key={src}
@@ -221,7 +220,6 @@ function HeroSection() {
                 />
             ))}
 
-            {/* ── Dark Gradient Overlay ── */}
             <div
                 className="absolute inset-0 z-[1]"
                 style={{
@@ -235,7 +233,6 @@ function HeroSection() {
                 }}
             />
 
-            {/* ── Content ── */}
             <div className="relative z-10 max-w-[1100px] mx-auto px-6 py-[160px] lg:py-[180px] w-full flex flex-col items-center">
                 <div
                     className="text-center"
@@ -332,7 +329,6 @@ function HeroSection() {
                     </div>
                 </div>
 
-                {/* ── Slide Indicators ── */}
                 <div className="flex gap-2 mt-12 justify-center">
                     {heroSlides.map((_, i) => (
                         <button

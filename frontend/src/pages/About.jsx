@@ -95,45 +95,13 @@ const offices = [
     },
 ];
 
-const stats = [
-    { value: '200+', label: 'Active Members' },
-    { value: '30+', label: 'Events Hosted' },
-    { value: '7', label: 'Core Offices' },
-    { value: '3+', label: 'Years Strong' },
+const heroSlides = [
+    '/images/event1.png',
+    '/images/event2.jpg',
+    '/images/event3.png',
 ];
 
-const pillars = [
-    {
-        title: 'Our Mission',
-        body: 'To empower students with real-world cloud skills through hands-on learning, community-driven projects, and AWS-backed resources — building the next generation of cloud professionals.',
-        icon: (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
-            </svg>
-        ),
-        color: '#2577d4',
-    },
-    {
-        title: 'Our Vision',
-        body: 'A future where every student has access to cloud technology — and where Filipino tech talent leads innovation on the global stage, one certification at a time.',
-        icon: (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" />
-            </svg>
-        ),
-        color: '#0ea5e9',
-    },
-    {
-        title: 'Our Values',
-        body: 'Collaboration over competition. Curiosity over comfort. Community over credentials. The best builders lift others as they rise — and that\'s exactly what we do.',
-        icon: (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-            </svg>
-        ),
-        color: '#7c3aed',
-    },
-];
+
 
 function useInView(threshold = 0.12) {
     const ref = useRef(null);
@@ -220,43 +188,71 @@ function OfficeCard({ office, index, inView }) {
 
 function HeroSection() {
     const [ref, inView] = useInView(0.05);
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
 
     return (
         <section
             ref={ref}
-            className="relative overflow-hidden pt-[140px] pb-[100px] lg:pt-[180px] px-6"
+            className="relative overflow-hidden min-h-[85vh] flex items-center"
         >
+            {/* ── Slideshow Background ── */}
+            {heroSlides.map((src, i) => (
+                <div
+                    key={src}
+                    className="absolute inset-0 z-0"
+                    style={{
+                        backgroundImage: `url(${src})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        opacity: currentSlide === i ? 1 : 0,
+                        transition: 'opacity 1.2s ease-in-out',
+                        transform: currentSlide === i ? 'scale(1.05)' : 'scale(1)',
+                        transitionProperty: 'opacity, transform',
+                        transitionDuration: '1.2s, 8s',
+                        transitionTimingFunction: 'ease-in-out, ease-out',
+                    }}
+                />
+            ))}
+
+            {/* ── Dark Gradient Overlay ── */}
             <div
-                className="absolute -top-[120px] left-1/2 -translate-x-1/2 w-[700px] h-[420px] pointer-events-none z-0"
+                className="absolute inset-0 z-[1]"
                 style={{
-                    background: 'radial-gradient(ellipse, rgba(147,210,255,0.55) 0%, rgba(200,235,255,0.25) 45%, transparent 75%)',
-                    filter: 'blur(40px)',
+                    background: 'linear-gradient(135deg, rgba(10,25,50,0.82) 0%, rgba(13,40,69,0.72) 40%, rgba(37,119,212,0.45) 100%)',
                 }}
             />
             <div
-                className="absolute bottom-0 right-[-5%] w-[500px] h-[300px] pointer-events-none z-0"
+                className="absolute inset-0 z-[1]"
                 style={{
-                    background: 'radial-gradient(ellipse, rgba(186,220,255,0.4) 0%, transparent 70%)',
-                    filter: 'blur(50px)',
+                    background: 'linear-gradient(to top, rgba(10,25,50,0.6) 0%, transparent 40%)',
                 }}
             />
 
-            <div className="relative z-10 max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* ── Content ── */}
+            <div className="relative z-10 max-w-[1100px] mx-auto px-6 py-[160px] lg:py-[180px] w-full flex flex-col items-center">
                 <div
+                    className="text-center"
                     style={{
                         opacity: inView ? 1 : 0,
-                        transform: inView ? 'translateX(0)' : 'translateX(-32px)',
+                        transform: inView ? 'translateY(0)' : 'translateY(32px)',
                         transition: 'opacity 0.9s ease, transform 0.9s ease',
                     }}
                 >
                     <div
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.8rem] font-semibold tracking-wide mb-6"
                         style={{
-                            background: 'rgba(255,255,255,0.6)',
+                            background: 'rgba(255,255,255,0.12)',
                             backdropFilter: 'blur(12px)',
-                            border: '1px solid rgba(147,210,255,0.5)',
-                            color: '#1a60b8',
-                            boxShadow: '0 2px 12px rgba(37,119,212,0.1)',
+                            border: '1px solid rgba(255,255,255,0.2)',
+                            color: 'rgba(255,255,255,0.9)',
+                            boxShadow: '0 2px 12px rgba(0,0,0,0.15)',
                         }}
                     >
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -266,35 +262,51 @@ function HeroSection() {
                     </div>
 
                     <h1
-                        className="font-extrabold leading-[1.08] mb-5 tracking-[-0.04em] text-[#0d2845]"
-                        style={{ fontSize: 'clamp(2.8rem, 5vw, 4.4rem)', textShadow: '0 2px 20px rgba(37,119,212,0.08)' }}
+                        className="font-extrabold leading-[1.08] mb-5 tracking-[-0.04em] text-white"
+                        style={{ fontSize: 'clamp(2.8rem, 5vw, 4.4rem)', textShadow: '0 4px 30px rgba(0,0,0,0.4)' }}
                     >
                         Who{' '}
-                        <span
-                            style={{
-                                background: 'linear-gradient(135deg, #1a60b8 0%, #38bdf8 100%)',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                backgroundClip: 'text',
-                            }}
-                        >
-                            We Are
+                        <span className="inline-block relative">
+                            <img
+                                src={mascot}
+                                alt="AWSCC Mascot"
+                                className="absolute pointer-events-none"
+                                style={{
+                                    width: 'clamp(80px, 10vw, 120px)',
+                                    left: '50%',
+                                    bottom: '85%',
+                                    transform: 'translateX(-50%)',
+                                    animation: 'mascot-float-hero 4s ease-in-out infinite',
+                                    filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.4))',
+                                    zIndex: 10,
+                                }}
+                            />
+                            <span
+                                style={{
+                                    background: 'linear-gradient(135deg, #93d2ff 0%, #38bdf8 100%)',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    backgroundClip: 'text',
+                                }}
+                            >
+                                We Are
+                            </span>
                         </span>
                     </h1>
 
-                    <p className="text-[1.15rem] leading-[1.65] mb-10 max-w-[520px]" style={{ color: '#4a7fa5' }}>
+                    <p className="text-[1.15rem] leading-[1.65] mb-10 max-w-[520px] mx-auto" style={{ color: 'rgba(255,255,255,0.8)' }}>
                         We're a community of cloud learners, builders, and future leaders
                         united by a shared passion for technology. At AWSCC Flurry, we don't
-                        just learn the cloud — we build with it, together.
+                        just learn the cloud we build with it, together.
                     </p>
 
-                    <div className="flex gap-4 flex-wrap">
+                    <div className="flex gap-4 flex-wrap justify-center">
                         <Link
                             to="/events"
                             className="btn-glow inline-flex items-center gap-2 text-white px-8 py-[14px] rounded-[12px] text-[0.95rem] font-semibold"
                             style={{
                                 background: '#2577d4',
-                                boxShadow: '0 4px 20px rgba(37,119,212,0.35)',
+                                boxShadow: '0 4px 20px rgba(37,119,212,0.45)',
                             }}
                         >
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -304,7 +316,13 @@ function HeroSection() {
                         </Link>
                         <a
                             href="#offices"
-                            className="glass-card inline-flex items-center gap-2 px-8 py-[14px] rounded-[12px] text-[0.9rem] font-medium text-[#1a60b8] hover:-translate-y-[2px] transition-all"
+                            className="inline-flex items-center gap-2 px-8 py-[14px] rounded-[12px] text-[0.9rem] font-medium hover:-translate-y-[2px] transition-all"
+                            style={{
+                                background: 'rgba(255,255,255,0.12)',
+                                backdropFilter: 'blur(12px)',
+                                border: '1px solid rgba(255,255,255,0.25)',
+                                color: 'white',
+                            }}
                         >
                             Meet the Offices
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -314,82 +332,39 @@ function HeroSection() {
                     </div>
                 </div>
 
-                <div
-                    style={{
-                        opacity: inView ? 1 : 0,
-                        transform: inView ? 'translateX(0)' : 'translateX(32px)',
-                        transition: 'opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s',
-                    }}
-                >
-                    <div className="relative">
-                        <div
-                            className="absolute inset-0 rounded-[28px] pointer-events-none"
+                {/* ── Slide Indicators ── */}
+                <div className="flex gap-2 mt-12 justify-center">
+                    {heroSlides.map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => setCurrentSlide(i)}
+                            aria-label={`Go to slide ${i + 1}`}
                             style={{
-                                background: 'radial-gradient(ellipse at 60% 40%, rgba(147,210,255,0.5) 0%, transparent 70%)',
-                                filter: 'blur(30px)',
-                                transform: 'scale(1.1)',
+                                width: currentSlide === i ? 32 : 10,
+                                height: 10,
+                                borderRadius: 5,
+                                border: 'none',
+                                cursor: 'pointer',
+                                background: currentSlide === i ? '#2577d4' : 'rgba(255,255,255,0.35)',
+                                transition: 'all 0.4s ease',
+                                boxShadow: currentSlide === i ? '0 0 12px rgba(37,119,212,0.6)' : 'none',
                             }}
                         />
-                        <div
-                            className="relative glass-card rounded-[28px] p-8 overflow-visible"
-                            style={{ border: '1px solid rgba(147,210,255,0.4)' }}
-                        >
-                            <img
-                                src={mascot}
-                                alt="AWSCC Mascot"
-                                className="absolute pointer-events-none"
-                                style={{
-                                    width: 140,
-                                    right: -20,
-                                    top: -70,
-                                    animation: 'mascot-float 4s ease-in-out infinite',
-                                    filter: 'drop-shadow(0 8px 20px rgba(37,119,212,0.25))',
-                                    zIndex: 10,
-                                }}
-                            />
-
-                            <p className="text-[0.75rem] font-bold tracking-[0.12em] uppercase mb-5" style={{ color: '#2577d4', opacity: 0.7 }}>
-                                By the numbers
-                            </p>
-
-                            <div className="grid grid-cols-2 gap-4">
-                                {stats.map((s, i) => (
-                                    <div
-                                        key={s.label}
-                                        className="rounded-[16px] p-4"
-                                        style={{ background: i % 2 === 0 ? 'rgba(37,119,212,0.06)' : 'rgba(147,210,255,0.1)', border: '1px solid rgba(147,210,255,0.2)' }}
-                                    >
-                                        <div className="font-extrabold text-[1.8rem] tracking-tight" style={{ color: '#0d2845', lineHeight: 1.1 }}>{s.value}</div>
-                                        <div className="text-[0.78rem] font-medium mt-1" style={{ color: '#4a7fa5' }}>{s.label}</div>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div
-                                className="mt-5 rounded-[14px] px-4 py-3 flex items-center gap-3"
-                                style={{ background: 'linear-gradient(135deg, #2577d4, #0ea5e9)', boxShadow: '0 4px 16px rgba(37,119,212,0.3)' }}
-                            >
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
-                                </svg>
-                                <span className="text-white text-[0.85rem] font-semibold">Est. 2022 · Philippines</span>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </section>
     );
 }
 
-function MissionSection() {
+function LegacySection() {
     const [ref, inView] = useInView(0.1);
 
     return (
         <section ref={ref} className="py-24 px-6">
             <div className="max-w-[1100px] mx-auto">
                 <div
-                    className="text-center mb-14"
+                    className="mb-16"
                     style={{
                         opacity: inView ? 1 : 0,
                         transform: inView ? 'translateY(0)' : 'translateY(20px)',
@@ -400,42 +375,87 @@ function MissionSection() {
                         className="inline-block text-[0.75rem] font-bold tracking-[0.14em] uppercase px-4 py-1.5 rounded-full mb-4"
                         style={{ background: 'rgba(37,119,212,0.1)', color: '#1a60b8', border: '1px solid rgba(37,119,212,0.2)' }}
                     >
-                        What Drives Us
+                        Our Legacy
                     </span>
                     <h2
-                        className="font-extrabold tracking-[-0.03em] text-[#0d2845]"
+                        className="font-extrabold tracking-[-0.03em] text-[#0d2845] mb-2"
                         style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
                     >
-                        Purpose-built for builders
+                        Defining the Standard
                     </h2>
+                    <p className="text-[1rem] font-semibold" style={{ color: '#2577d4', opacity: 0.7 }}>
+                        Since 2023
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {pillars.map((p, i) => (
-                        <div
-                            key={p.title}
-                            className="glass-card rounded-[20px] p-8 relative overflow-hidden"
-                            style={{
-                                opacity: inView ? 1 : 0,
-                                transform: inView ? 'translateY(0)' : 'translateY(28px)',
-                                transition: `opacity 0.7s ease ${i * 120}ms, transform 0.7s ease ${i * 120}ms`,
-                                border: `1px solid ${p.color}22`,
-                            }}
-                        >
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div
+                        style={{
+                            opacity: inView ? 1 : 0,
+                            transform: inView ? 'translateX(0)' : 'translateX(-24px)',
+                            transition: 'opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s',
+                        }}
+                    >
+                        <p className="text-[1.05rem] leading-[1.75] mb-6" style={{ color: '#3a6a8a' }}>
+                            As a rising chapter of the AWS Cloud Club community, AWSCC Flurry has quickly set the benchmark for student-led tech organizations. In our first year, we ignited a movement — hosting cloud workshops, hackathons, and community events that brought real-world AWS skills directly to students.
+                        </p>
+                        <p className="text-[1.05rem] leading-[1.75]" style={{ color: '#3a6a8a' }}>
+                            We bridge the critical gap between academic learning and industry-level cloud expertise, connecting students with AWS professionals and global leaders to explore the future of cloud technology — one hands-on experience at a time.
+                        </p>
+                    </div>
+
+                    <div
+                        style={{
+                            opacity: inView ? 1 : 0,
+                            transform: inView ? 'translateX(0)' : 'translateX(24px)',
+                            transition: 'opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s',
+                        }}
+                    >
+                        <div className="legacy-mission-card glass-card rounded-[20px] p-8 relative overflow-hidden cursor-pointer">
                             <div style={{
                                 position: 'absolute', top: 0, left: 0, right: 0, height: 3,
-                                background: `linear-gradient(90deg, ${p.color}, ${p.color}88)`,
+                                background: 'linear-gradient(90deg, #2577d4, #0ea5e9)',
                             }} />
-                            <div
-                                className="w-10 h-10 rounded-[12px] flex items-center justify-center mb-5"
-                                style={{ background: `${p.color}15`, color: p.color }}
-                            >
-                                {p.icon}
+                            <div className="legacy-mission-glow" />
+                            <div className="relative z-[2]">
+                                <div className="legacy-mission-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                                        <line x1="12" y1="9" x2="12" y2="13" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </div>
+                                <p className="text-[1rem] leading-[1.75] italic mb-6" style={{ color: '#1a3f5f', fontWeight: 500 }}>
+                                    "To empower students through education, skill development, and industry engagement, providing them with the tools and opportunities needed to excel in the digital economy."
+                                </p>
+                                <div className="flex items-center gap-3">
+                                    <div style={{
+                                        width: 40, height: 2,
+                                        background: 'linear-gradient(90deg, #2577d4, #0ea5e9)',
+                                        borderRadius: 2,
+                                    }} />
+                                    <span className="text-[0.85rem] font-bold tracking-[0.08em] uppercase" style={{ color: '#2577d4' }}>
+                                        Our Mission
+                                    </span>
+                                </div>
                             </div>
-                            <h3 className="font-bold text-[1.1rem] text-[#0d2845] mb-3">{p.title}</h3>
-                            <p className="text-[0.9rem] leading-[1.7]" style={{ color: '#4a7fa5' }}>{p.body}</p>
                         </div>
-                    ))}
+
+                        <div
+                            className="mt-6 rounded-[14px] px-6 py-4 flex items-center gap-3"
+                            style={{
+                                background: 'linear-gradient(135deg, #2577d4, #0ea5e9)',
+                                boxShadow: '0 4px 20px rgba(37,119,212,0.3)',
+                            }}
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+                            </svg>
+                            <span className="text-white text-[0.95rem] font-bold">
+                                Bridging Academia & Industry
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -566,7 +586,7 @@ export default function AboutPage() {
 
             <main className="relative z-[1]">
                 <HeroSection />
-                <MissionSection />
+                <LegacySection />
                 <OfficesSection />
                 <CTASection />
             </main>
@@ -605,10 +625,51 @@ export default function AboutPage() {
           transform: rotateY(180deg);
         }
 
+        /* ── Legacy Mission Card ── */
+        .legacy-mission-card {
+          transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.45s ease;
+          border: 1px solid rgba(37,119,212,0.15) !important;
+        }
+        .legacy-mission-card:hover {
+          transform: translateY(-6px) scale(1.02);
+          box-shadow: 0 20px 50px rgba(37,119,212,0.2), 0 0 0 1px rgba(37,119,212,0.15);
+        }
+        .legacy-mission-glow {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at 50% 0%, rgba(37,119,212,0.12) 0%, transparent 70%);
+          opacity: 0;
+          transition: opacity 0.45s ease;
+          z-index: 1;
+        }
+        .legacy-mission-card:hover .legacy-mission-glow {
+          opacity: 1;
+        }
+        .legacy-mission-icon {
+          width: 44px;
+          height: 44px;
+          border-radius: 12px;
+          background: rgba(37,119,212,0.1);
+          color: #2577d4;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 16px;
+          transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), background 0.45s ease;
+        }
+        .legacy-mission-card:hover .legacy-mission-icon {
+          transform: scale(1.15) rotate(-8deg);
+          background: rgba(37,119,212,0.18);
+        }
+
         /* ── Shared with Landing ── */
         @keyframes mascot-float {
           0%, 100% { transform: translateX(-50%) translateY(0); }
           50%       { transform: translateX(-50%) translateY(-10px); }
+        }
+        @keyframes mascot-float-hero {
+          0%, 100% { transform: translateY(0); }
+          50%       { transform: translateY(-14px); }
         }
         @keyframes shimmer-bg {
           0%   { background-position: 0% 50%; }

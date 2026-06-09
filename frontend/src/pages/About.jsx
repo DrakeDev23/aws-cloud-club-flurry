@@ -11,7 +11,7 @@ const offices = [
     {
         id: 1,
         title: 'Executive',
-        description: 'Steering the club\'s long-term vision and strategic direction, championing innovation and cultivating a culture where every member can grow.',
+        description: 'Steering the club\'s long term vision and strategic direction, championing innovation and cultivating a culture where every member can grow.',
         frontIcon: (
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="8" r="3" /><path d="M8 21v-1a4 4 0 0 1 8 0v1" /><path d="m17 5 2-2 2 2" /><path d="M19 3v8" />
@@ -23,7 +23,7 @@ const offices = [
     {
         id: 2,
         title: 'Finance',
-        description: 'Keeping our fiscal foundation rock-solid through smart budget allocation, financial planning, and ensuring every resource creates maximum impact.',
+        description: 'Keeping our fiscal foundation rock solid through smart budget allocation, financial planning, and ensuring every resource creates maximum impact.',
         frontIcon: (
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
@@ -35,7 +35,7 @@ const offices = [
     {
         id: 3,
         title: 'Creatives',
-        description: 'The visual heartbeat of AWSCC — crafting compelling brand identities, stunning materials, and visual stories that make the cloud world feel alive.',
+        description: 'The visual heartbeat of AWSCC crafting compelling brand identities, stunning materials, and visual stories that make the cloud world feel alive.',
         frontIcon: (
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
@@ -48,7 +48,7 @@ const offices = [
     {
         id: 4,
         title: 'Operations',
-        description: 'The engine behind every seamless event — ensuring internal workflows are lean, logistics are airtight, and the club runs like a well-architected system.',
+        description: 'The engine behind every seamless event ensuring internal workflows are lean, logistics are airtight, and the club runs like a well architected system.',
         frontIcon: (
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" /><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" /><path d="M12 2v2" /><path d="M12 22v-2" /><path d="m17 20.66-1-1.73" /><path d="M11 10.27 7 3.34" /><path d="m20.66 17-1.73-1" /><path d="m3.34 7 1.73 1" /><path d="M22 12h-2" /><path d="M2 12h2" /><path d="m20.66 7-1.73 1" /><path d="m3.34 17 1.73-1" /><path d="m17 3.34-1 1.73" /><path d="m11 13.73-4 6.93" />
@@ -60,7 +60,7 @@ const offices = [
     {
         id: 5,
         title: 'Relations',
-        description: 'Building genuine bridges with communities, sponsors, and partners — amplifying our reach and deepening our impact across the region.',
+        description: 'Building genuine bridges with communities, sponsors, and partners amplifying our reach and deepening our impact across the region.',
         frontIcon: (
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /><path d="m21 3 1 11h-1" /><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /><path d="M3 4h8" />
@@ -72,7 +72,7 @@ const offices = [
     {
         id: 6,
         title: 'Marketing',
-        description: 'Amplifying the AWSCC story across every channel — from campaigns to content, driving awareness, engagement, and brand growth at every touchpoint.',
+        description: 'Amplifying the AWSCC story across every channel from campaigns to content, driving awareness, engagement, and brand growth at every touchpoint.',
         frontIcon: (
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="m3 11 19-9-9 19-2-8-8-2z" />
@@ -84,7 +84,7 @@ const offices = [
     {
         id: 7,
         title: 'Technology',
-        description: 'Building the digital backbone of our community — engineering secure, scalable tools and driving the hands-on technical culture that defines us.',
+        description: 'Building the digital backbone of our community engineering secure, scalable tools and driving the hands on technical culture that defines us.',
         frontIcon: (
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
@@ -160,7 +160,7 @@ function OfficeCard({ office, index, inView }) {
                         background: `linear-gradient(145deg, ${office.accent}ee, ${office.accent}bb)`,
                         display: 'flex', flexDirection: 'column',
                         alignItems: 'flex-start', justifyContent: 'space-between',
-                        padding: '28px 24px',
+                        padding: '22px 20px',
                     }}
                 >
                     <div>
@@ -393,10 +393,10 @@ function LegacySection() {
                         }}
                     >
                         <p className="text-[1.05rem] leading-[1.75] mb-6" style={{ color: '#3a6a8a' }}>
-                            As a rising chapter of the AWS Cloud Club community, AWSCC Flurry has quickly set the benchmark for student-led tech organizations. In our first year, we ignited a movement — hosting cloud workshops, hackathons, and community events that brought real-world AWS skills directly to students.
+                            As a rising chapter of the AWS Cloud Club community, AWSCC Flurry has quickly set the benchmark for student led tech organizations. In our first year, we ignited a movement hosting cloud workshops, hackathons, and community events that brought real-world AWS skills directly to students.
                         </p>
                         <p className="text-[1.05rem] leading-[1.75]" style={{ color: '#3a6a8a' }}>
-                            We bridge the critical gap between academic learning and industry-level cloud expertise, connecting students with AWS professionals and global leaders to explore the future of cloud technology — one hands-on experience at a time.
+                            We bridge the critical gap between academic learning and industry level cloud expertise, connecting students with AWS professionals and global leaders to explore the future of cloud technology one hands on experience at a time.
                         </p>
                     </div>
 
@@ -502,6 +502,225 @@ function OfficesSection() {
     );
 }
 
+const skillDepartments = [
+    {
+        id: 1,
+        icon: (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+            </svg>
+        ),
+        title: 'Cloud Architecture',
+        description: 'Design and deploy scalable, fault-tolerant infrastructure on AWS using industry best practices.',
+    },
+    {
+        id: 2,
+        icon: (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
+            </svg>
+        ),
+        title: 'Software Engineering',
+        description: 'Build production grade applications and APIs with modern development patterns and cloud-native tools.',
+    },
+    {
+        id: 3,
+        icon: (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /><path d="M9 21V9" />
+            </svg>
+        ),
+        title: 'UI / UX Design',
+        description: 'Craft intuitive digital experiences through research backed design systems and prototyping workflows.',
+    },
+    {
+        id: 4,
+        icon: (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+        ),
+        title: 'Content & Writing',
+        description: 'Develop sharp technical and creative content that communicates complex cloud ideas with clarity.',
+    },
+    {
+        id: 5,
+        icon: (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 3h7v7H3z" /><path d="M14 3h7v7h-7z" /><path d="M14 14h7v7h-7z" /><path d="M3 14h7v7H3z" />
+            </svg>
+        ),
+        title: 'Project Management',
+        description: 'Lead end to end project lifecycles, aligning cross functional teams toward on time, impactful delivery.',
+    },
+    {
+        id: 6,
+        icon: (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="3" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" /><path d="M4.93 4.93a10 10 0 0 0 0 14.14" />
+            </svg>
+        ),
+        title: 'Community & Events',
+        description: 'Organize high impact meetups, workshops, and hackathons that bring the cloud community to life.',
+    },
+    {
+        id: 7,
+        icon: (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+        ),
+        title: 'Data & Analytics',
+        description: 'Turn raw data into actionable insight using cloud based pipelines, dashboards, and ML tooling.',
+    },
+    {
+        id: 8,
+        icon: (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+        ),
+        title: 'Cybersecurity',
+        description: 'Implement identity, access, and compliance controls that keep cloud workloads safe at every layer.',
+    },
+];
+
+function SkillBuilderSection() {
+    const [ref, inView] = useInView(0.06);
+    const trackRef = useRef(null);
+    const animFrameRef = useRef(null);
+    const offsetRef = useRef(0);
+    const pausedRef = useRef(false);
+    const SPEED = 0.45;
+
+    const doubled = [...skillDepartments, ...skillDepartments];
+
+    useEffect(() => {
+        const track = trackRef.current;
+        if (!track) return;
+
+        const halfWidth = track.scrollWidth / 2;
+
+        const tick = () => {
+            if (!pausedRef.current) {
+                offsetRef.current += SPEED;
+                if (offsetRef.current >= halfWidth) {
+                    offsetRef.current -= halfWidth;
+                }
+                track.style.transform = `translateX(-${offsetRef.current}px)`;
+            }
+            animFrameRef.current = requestAnimationFrame(tick);
+        };
+
+        animFrameRef.current = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(animFrameRef.current);
+    }, []);
+
+    return (
+        <section ref={ref} className="py-24 overflow-hidden">
+            <div
+                className="max-w-[1100px] mx-auto px-6 mb-14 text-center"
+                style={{
+                    opacity: inView ? 1 : 0,
+                    transform: inView ? 'translateY(0)' : 'translateY(20px)',
+                    transition: 'opacity 0.7s ease, transform 0.7s ease',
+                }}
+            >
+                <span
+                    className="inline-block text-[0.75rem] font-bold tracking-[0.14em] uppercase px-4 py-1.5 rounded-full mb-4"
+                    style={{
+                        background: 'rgba(37,119,212,0.1)',
+                        color: '#1a60b8',
+                        border: '1px solid rgba(37,119,212,0.2)',
+                    }}
+                >
+                    Skill Builder
+                </span>
+                <h2
+                    className="font-extrabold tracking-[-0.03em] text-[#0d2845] mb-4"
+                    style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+                >
+                    Grow in Every Direction
+                </h2>
+                <p
+                    className="text-[1rem] max-w-[500px] mx-auto leading-[1.7]"
+                    style={{ color: '#4a7fa5' }}
+                >
+                    Whether you code, design, lead, or write there's a path here built
+                    for you. Explore the departments shaping the next generation of cloud
+                    builders.
+                </p>
+            </div>
+
+            <div
+                className="relative"
+                onMouseEnter={() => { pausedRef.current = true; }}
+                onMouseLeave={() => { pausedRef.current = false; }}
+
+                style={{
+                    maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+                }}
+            >
+                <div
+                    ref={trackRef}
+                    className="flex gap-5 will-change-transform"
+                    style={{ width: 'max-content' }}
+                >
+                    {doubled.map((dept, i) => (
+                        <SkillCard key={`${dept.id}-${i}`} dept={dept} inView={inView} index={i % skillDepartments.length} />
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+function SkillCard({ dept, inView, index }) {
+    return (
+        <div
+            className="flex-shrink-0 w-72 p-8 rounded-2xl flex flex-col items-center text-center
+                        cursor-default select-none
+                        transition-transform duration-300 ease-out hover:scale-[1.03]"
+            style={{
+                opacity: inView ? 1 : 0,
+                transition: `opacity 0.6s ease ${index * 60}ms, transform 0.3s ease`,
+                border: '1px solid rgba(37,119,212,0.12)',
+                background: 'rgba(255,255,255,0.72)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                boxShadow: '0 2px 16px rgba(13,40,69,0.06)',
+            }}
+        >
+            <div
+                className="mb-5 flex items-center justify-center rounded-2xl"
+                style={{
+                    width: 60, height: 60,
+                    background: 'rgba(37,119,212,0.08)',
+                    color: '#2577d4',
+                    border: '1px solid rgba(37,119,212,0.15)',
+                }}
+            >
+                {dept.icon}
+            </div>
+
+            <h3
+                className="font-bold tracking-wide mb-3"
+                style={{ fontSize: '1.05rem', color: '#0d2845' }}
+            >
+                {dept.title}
+            </h3>
+
+            <p
+                className="text-sm leading-[1.7]"
+                style={{ color: '#4a7fa5', opacity: 0.9 }}
+            >
+                {dept.description}
+            </p>
+        </div>
+    );
+}
+
 const mascot1 = '/images/mascot1.svg';
 
 function CTASection() {
@@ -584,6 +803,7 @@ export default function AboutPage() {
                 <HeroSection />
                 <LegacySection />
                 <OfficesSection />
+                <SkillBuilderSection />
                 <CTASection />
             </main>
 
@@ -594,7 +814,7 @@ export default function AboutPage() {
         /* ── Flip card ── */
         .flip-card-wrapper {
           perspective: 1000px;
-          height: 220px;
+          height: 260px;
         }
         .flip-card {
           width: 100%;

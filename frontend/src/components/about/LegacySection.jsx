@@ -41,7 +41,7 @@ export default function LegacySection() {
                         }}
                     >
                         <p className="text-[1.05rem] leading-[1.75] mb-6" style={{ color: '#3a6a8a' }}>
-                            As a rising chapter of the AWS Cloud Club community, AWSCC Flurry has quickly set the benchmark for student led tech organizations. In our first year, we ignited a movement hosting cloud workshops, hackathons, and community events that brought real-world AWS skills directly to students.
+                            As a rising chapter of the AWS Cloud Club community, AWSCC Flurry has quickly set the benchmark for student led tech organizations. In our first year, we ignited a movement hosting cloud workshops, hackathons, and community events that brought real world AWS skills directly to students.
                         </p>
                         <p className="text-[1.05rem] leading-[1.75]" style={{ color: '#3a6a8a' }}>
                             We bridge the critical gap between academic learning and industry level cloud expertise, connecting students with AWS professionals and global leaders to explore the future of cloud technology one hands on experience at a time.
